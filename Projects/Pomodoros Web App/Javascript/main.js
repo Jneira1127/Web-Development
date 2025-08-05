@@ -7,6 +7,7 @@ let state = true;
 
 //events and functions
 const appTimer = () => {
+  //local variables and objects
   const sessionAmount = Number.parseInt(session.textContent)
 
   if(state) {
@@ -21,7 +22,7 @@ const appTimer = () => {
 
       let minutesLeft = Math.floor(totalSeconds/60);
       let secondsLeft = totalSeconds % 60;
-
+      
       if(secondsLeft < 10) {
         secondDiv.textContent = '0' + secondsLeft;
       } else {
@@ -34,9 +35,12 @@ const appTimer = () => {
         clearInterval(myInterval);
       }
     }
+      
     myInterval = setInterval(updateSeconds, 1000);
   } else {
     alert('Session has already started.')
   }
- startBtn.addEventListener('click', appTimer);
+ 
 }
+
+startBtn.addEventListener('click', appTimer);
